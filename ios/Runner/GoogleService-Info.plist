@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAuy-3FZAILsfy1NtaGR9ytDpmP5zLgWc0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>988731635472</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.finalmood</string>
+	<key>PROJECT_ID</key>
+	<string>make-mode-tracker-giseon</string>
+	<key>STORAGE_BUCKET</key>
+	<string>make-mode-tracker-giseon.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:988731635472:ios:874c77ec01edd5be805795</string>
+</dict>
+</plist>

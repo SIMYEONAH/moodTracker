@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "988731635472",
+    "project_id": "make-mode-tracker-giseon",
+    "storage_bucket": "make-mode-tracker-giseon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988731635472:android:e89dc6325194de1c805795",
+        "android_client_info": {
+          "package_name": "com.example.finalmood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNayo9qhmzByJT6H0KMu1Nln3Ph8O02HU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
