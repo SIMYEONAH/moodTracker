@@ -9,6 +9,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffdfe6e9),
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -22,27 +23,41 @@ class WelcomeScreen extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Welcome",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
                   ),
-                  Gaps.h24,
+                  Gaps.v24,
+                ],
+              ),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "How are you \nfeeling today?",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 40,
+                    ),
+                  ),
                 ],
               ),
               Column(
                 children: <Widget>[
                   Container(
-                    padding: const EdgeInsets.only(right: 3, bottom: 3),
-                    // decoration: BoxDecoration(
-                    //   borderRadius: BorderRadius.circular(50),
-                    //   border: const Border(
-                    //     bottom: BorderSide(color: Colors.black),
-                    //     top: BorderSide(color: Colors.black),
-                    //     left: BorderSide(color: Colors.black),
-                    //     right: BorderSide(color: Colors.black),
-                    //   ),
-                    // ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: const Border(
+                        bottom: BorderSide(color: Colors.black),
+                        top: BorderSide(color: Colors.black),
+                        left: BorderSide(color: Colors.black),
+                        right: BorderSide(color: Colors.black),
+                      ),
+                    ),
                     child: MaterialButton(
                       minWidth: double.infinity,
-                      height: 60,
+                      height: 65,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -60,34 +75,26 @@ class WelcomeScreen extends StatelessWidget {
                         "Login",
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 18,
+                          fontSize: 20,
                           color: Colors.black,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  Gaps.v20,
                   Container(
-                    padding: const EdgeInsets.only(
-                      top: 3,
-                      left: 3,
-                      right: 3,
-                      bottom: 3,
-                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      // border: const Border(
-                      //   bottom: BorderSide(color: Colors.black),
-                      //   top: BorderSide(color: Colors.black),
-                      //   left: BorderSide(color: Colors.black),
-                      //   right: BorderSide(color: Colors.black),
-                      // ),
+                      border: const Border(
+                        bottom: BorderSide(color: Colors.black),
+                        top: BorderSide(color: Colors.black),
+                        left: BorderSide(color: Colors.black),
+                        right: BorderSide(color: Colors.black),
+                      ),
                     ),
                     child: MaterialButton(
                       minWidth: double.infinity,
-                      height: 60,
+                      height: 65,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -105,7 +112,7 @@ class WelcomeScreen extends StatelessWidget {
                         "Sign up",
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 18,
+                          fontSize: 20,
                           color: Colors.black,
                         ),
                       ),
