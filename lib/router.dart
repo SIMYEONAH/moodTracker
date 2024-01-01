@@ -1,4 +1,4 @@
-import 'package:finalmood/screens/homescreen.dart';
+import 'package:finalmood/screens/home_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(

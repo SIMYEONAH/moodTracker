@@ -1,4 +1,4 @@
-import 'package:finalmood/screens/loginscreen.dart';
+import 'package:finalmood/screens/log_in_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {

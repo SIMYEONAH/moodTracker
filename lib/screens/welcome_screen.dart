@@ -1,6 +1,6 @@
 import 'package:finalmood/constants/gaps.dart';
-import 'package:finalmood/screens/loginscreen.dart';
-import 'package:finalmood/screens/signupscreen.dart';
+import 'package:finalmood/screens/log_in_screen.dart';
+import 'package:finalmood/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
