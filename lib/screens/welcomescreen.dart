@@ -57,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     child: MaterialButton(
                       minWidth: double.infinity,
-                      height: 65,
+                      height: 60,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -94,7 +94,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     child: MaterialButton(
                       minWidth: double.infinity,
-                      height: 65,
+                      height: 60,
                       onPressed: () {
                         Navigator.push(
                           context,
