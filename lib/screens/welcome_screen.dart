@@ -4,6 +4,8 @@ import 'package:finalmood/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  static const routeName = "welcome";
+  static const routeURL = "/welcome";
   const WelcomeScreen({super.key});
 
   @override

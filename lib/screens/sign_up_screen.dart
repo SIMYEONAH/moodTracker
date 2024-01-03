@@ -2,6 +2,8 @@ import 'package:finalmood/screens/log_in_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
+  static const routeName = "sign-up";
+  static const routeURL = "/sign-up";
   const SignupScreen({super.key});
 
   @override
