@@ -105,6 +105,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             ),
                           ),
                           TextFormField(
+                            obscureText: true,
                             validator: (value) {
                               if (value != null) {
                                 formData['password'] = value;

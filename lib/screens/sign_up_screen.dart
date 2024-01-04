@@ -110,6 +110,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   ),
                   TextField(
                     controller: _passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                       hintText: "Password",
                       contentPadding: const EdgeInsets.symmetric(

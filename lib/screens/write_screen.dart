@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../models/mood_view_model.dart';
+import '../repos/mood_repo.dart';
+
 class WriteScreen extends ConsumerStatefulWidget {
   static String routeName = "write";
   static String routeURL = "/write";
@@ -207,12 +210,12 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextButton(
                   onPressed: () {
-                    // ref.watch(moodProvider.notifier).createMood(
-                    //       ref.read(moodRepo).moodID,
-                    //       mood,
-                    //       content,
-                    //       formatDate,
-                    //     );
+                    ref.watch(moodProvider.notifier).createMood(
+                          ref.read(moodRepo).moodID,
+                          mood,
+                          content,
+                          formatDate,
+                        );
                   },
                   child: const Text(
                     "Post",

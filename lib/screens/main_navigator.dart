@@ -13,7 +13,7 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<MainNavigationScreen> {
-  final int _selectedIndex = 0;
+  late int _selectedIndex = 0;
 
   static List<Widget> pages = [const HomeScreen(), const WriteScreen()];
   @override
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<MainNavigationScreen> {
         child: BottomNavigationBar(
           onTap: (int index) {
             setState(() {
-              // _selectedIndex = index;
+              _selectedIndex = index;
             });
           },
           iconSize: 22,
