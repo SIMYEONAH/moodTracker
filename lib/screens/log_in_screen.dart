@@ -1,17 +1,23 @@
 import 'package:finalmood/constants/gaps.dart';
 import 'package:finalmood/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginScreen extends StatefulWidget {
+import '../models/signin_model.dart';
+
+class LoginScreen extends ConsumerStatefulWidget {
   static const routeName = "login";
   static const routeURL = "/login";
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  Map<String, String> formData = {};
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,11 +70,72 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Column(
-                      children: <Widget>[
-                        makeInput(label: "Email"),
-                        makeInput(label: "Password", obscureText: true),
-                      ],
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: <Widget>[
+                          TextFormField(
+                            validator: (value) {
+                              if (value != null) {
+                                formData['email'] = value;
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              hintText: "Email",
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 0,
+                                horizontal: 10,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(15.0),
+                                ),
+                                borderSide: BorderSide(
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(20.0),
+                                ),
+                                borderSide:
+                                    BorderSide(color: Colors.grey.shade400),
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            validator: (value) {
+                              if (value != null) {
+                                formData['password'] = value;
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              hintText: "Password",
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 0,
+                                horizontal: 10,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(15.0),
+                                ),
+                                borderSide: BorderSide(
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(20.0),
+                                ),
+                                borderSide:
+                                    BorderSide(color: Colors.grey.shade400),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
@@ -87,12 +154,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         minWidth: double.infinity,
                         height: 65,
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
-                            ),
-                          );
+                          if (_formKey.currentState != null) {
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              ref.watch(signinProvider.notifier).signin(
+                                    formData["email"]!,
+                                    formData["password"]!,
+                                    context,
+                                  );
+                              print(formData);
+                            }
+                          } else {
+                            print('formkey error');
+                          }
                         },
                         color: const Color(0xffffeaa7),
                         elevation: 0,

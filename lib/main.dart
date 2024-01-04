@@ -1,10 +1,15 @@
-import 'package:finalmood/screens/write_screen.dart';
+import 'package:finalmood/router.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-void main() {
-  GoRouter.optionURLReflectsImperativeAPIs = true;
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     const ProviderScope(
       child: App(),
@@ -12,16 +17,16 @@ void main() {
   );
 }
 
-class App extends StatelessWidget {
+class App extends ConsumerWidget {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp.router(
+      routerConfig: ref.read(routerProvider),
       debugShowCheckedModeBanner: false,
       title: 'Mood Tracker',
       theme: ThemeData(),
-      home: const WriteScreen(),
     );
   }
 }

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-class WriteScreen extends StatefulWidget {
+class WriteScreen extends ConsumerStatefulWidget {
   static String routeName = "write";
   static String routeURL = "/write";
   const WriteScreen({super.key});
 
   @override
-  State<WriteScreen> createState() => _WriteScreenState();
+  ConsumerState<WriteScreen> createState() => _WriteScreenState();
 }
 
-class _WriteScreenState extends State<WriteScreen> {
+class _WriteScreenState extends ConsumerState<WriteScreen> {
   String formatDate = DateFormat('yy/MM/dd - HH:mm:ss').format(DateTime.now());
 
   final TextEditingController _contentController = TextEditingController();
@@ -37,6 +38,20 @@ class _WriteScreenState extends State<WriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffdfe6e9),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: const Color(0xffdfe6e9),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.black,
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
@@ -105,7 +120,109 @@ class _WriteScreenState extends State<WriteScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    mood = '\u{1F618}';
+                  },
+                  child: const Text(
+                    '\u{1F618}',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    mood = '\u{1F61E}';
+                  },
+                  child: const Text(
+                    '\u{1F61E}',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    mood = '\u{1F62D}';
+                  },
+                  child: const Text(
+                    '\u{1F62D}',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    mood = '\u{1F622}';
+                  },
+                  child: const Text(
+                    '\u{1F622}',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    mood = '\u{1F621}';
+                  },
+                  child: const Text(
+                    '\u{1F621}',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
               ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 40,
+              width: 250,
+              decoration: BoxDecoration(
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black,
+                    // blurRadius: 2,
+                    spreadRadius: 0,
+                    offset: Offset(5, 3),
+                  ),
+                ],
+                color: const Color(0xffb2bec3),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: Colors.black,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: TextButton(
+                  onPressed: () {
+                    // ref.watch(moodProvider.notifier).createMood(
+                    //       ref.read(moodRepo).moodID,
+                    //       mood,
+                    //       content,
+                    //       formatDate,
+                    //     );
+                  },
+                  child: const Text(
+                    "Post",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

@@ -1,16 +1,41 @@
 import 'package:finalmood/screens/log_in_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SignupScreen extends StatefulWidget {
+import '../models/signup_model.dart';
+
+class SignupScreen extends ConsumerStatefulWidget {
   static const routeName = "sign-up";
   static const routeURL = "/sign-up";
   const SignupScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  ConsumerState<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _SignupScreenState extends ConsumerState<SignupScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  String _email = "";
+  String _password = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController.addListener(() {
+      setState(() {
+        _email = _emailController.value.text;
+      });
+    });
+
+    _passwordController.addListener(() {
+      setState(() {
+        _password = _passwordController.value.text;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,9 +85,51 @@ class _SignupScreenState extends State<SignupScreen> {
                 ],
               ),
               Column(
-                children: <Widget>[
-                  makeInput(label: "Email"),
-                  makeInput(label: "Password", obscureText: true),
+                children: [
+                  TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      hintText: "Email",
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 0,
+                        horizontal: 10,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(15.0),
+                        ),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(20.0),
+                        ),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                    ),
+                  ),
+                  TextField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 0,
+                        horizontal: 10,
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(15.0),
+                        ),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(20.0),
+                        ),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                    ),
+                  ),
                   // makeInput(label: "Confirm Password", obscureText: true),
                 ],
               ),
@@ -79,7 +146,13 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  onPressed: () {},
+                  onPressed: () {
+                    ref.watch(signupForm.notifier).state = {
+                      "email": _email,
+                      "password": _password,
+                    };
+                    ref.watch(signupProvier.notifier).signup(context);
+                  },
                   color: const Color(0xff74b9ff),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
