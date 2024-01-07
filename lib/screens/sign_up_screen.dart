@@ -2,6 +2,7 @@ import 'package:finalmood/screens/log_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../constants/gaps.dart';
 import '../models/signup_model.dart';
 
 class SignupScreen extends ConsumerStatefulWidget {
@@ -108,6 +109,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       ),
                     ),
                   ),
+                  Gaps.v16,
                   TextField(
                     controller: _passwordController,
                     obscureText: true,

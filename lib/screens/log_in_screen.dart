@@ -104,6 +104,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               ),
                             ),
                           ),
+                          Gaps.v16,
                           TextFormField(
                             obscureText: true,
                             validator: (value) {

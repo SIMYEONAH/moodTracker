@@ -1,3 +1,4 @@
+import 'package:finalmood/constants/gaps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -44,11 +45,11 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xffdfe6e9),
-        leading: IconButton(
-          onPressed: () {
+        leading: GestureDetector(
+          onTap: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,
@@ -60,11 +61,9 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
           horizontal: 20,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 40,
-            ),
+            Gaps.v24,
             const Text(
               "How Do You Feel?",
               style: TextStyle(
@@ -85,7 +84,7 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                 controller: _contentController,
                 cursorHeight: 15,
                 cursorColor: Colors.transparent,
-                maxLength: 5,
+                // maxLength: 5,
                 style: const TextStyle(
                   fontSize: 16,
                 ),
@@ -96,9 +95,7 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            Gaps.v36,
             const Text(
               "What's your mood today?",
               style: TextStyle(
@@ -106,9 +103,7 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                 fontSize: 18,
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            Gaps.v12,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -119,7 +114,7 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                   child: const Text(
                     '\u{1F601}',
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 35,
                     ),
                   ),
                 ),
@@ -132,7 +127,9 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                   },
                   child: const Text(
                     '\u{1F618}',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(
+                      fontSize: 35,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -144,7 +141,9 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                   },
                   child: const Text(
                     '\u{1F61E}',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(
+                      fontSize: 35,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -156,7 +155,9 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                   },
                   child: const Text(
                     '\u{1F62D}',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(
+                      fontSize: 35,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -168,7 +169,9 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                   },
                   child: const Text(
                     '\u{1F622}',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(
+                      fontSize: 35,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -180,17 +183,17 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                   },
                   child: const Text(
                     '\u{1F621}',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(
+                      fontSize: 35,
+                    ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            Gaps.v48,
             Container(
-              height: 40,
-              width: 250,
+              height: 45,
+              width: 320,
               decoration: BoxDecoration(
                 boxShadow: const [
                   BoxShadow(
@@ -221,7 +224,8 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                     "Post",
                     style: TextStyle(
                       color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
                     ),
                   ),
                 ),
